@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  titulo = 'Perfil'
+  public titulo = 'Perfil'
 
   perfis = [
     { nome: 'Admin' }

@@ -1,5 +1,27 @@
-<h1>{{titulo}}</h1>
+<div class="container" *ngIf="professorSelecionado">
+  <app-titulo [titulo]="'Professor: ' + professorSelecionado"></app-titulo>
+  <br>
+  <button class="btn btn-default" (click)="voltar()">Voltar</button>
+</div>
 
-<ul>
-  <li *ngFor="let professor of professores">{{professor.nome}}</li>
-</ul>
+<div class="container" *ngIf="!professorSelecionado">
+  <app-titulo [titulo]="titulo"></app-titulo>
+
+  <table class="table table-sm container table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Disciplina</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let professor of professores">
+      <tr style="cursor: pointer;" (click)="professorSelect(professor)">
+        <td scope="row">{{professor.id}}</td>
+        <td>{{professor.nome}}</td>
+        <td>{{professor.disciplina}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
